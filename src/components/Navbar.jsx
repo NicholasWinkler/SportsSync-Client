@@ -1,10 +1,21 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
+import SportsSyncLogo from "../assets/SportsSyncLogo.png";
 
 export const NavBar = () => {
   const navigate = useNavigate();
+
   return (
     <ul className="navbar pb-10">
+      <li className="navbar__item navbar__logo">
+        <NavLink to="/">
+          <img
+            src={SportsSyncLogo}
+            alt="SportsSync Logo"
+            className="logo-image"
+          />
+        </NavLink>
+      </li>
       <li className="navbar__item pl-10">
         <NavLink
           className="text-left underline text-blue-600 hover:text-purple-700"
@@ -60,7 +71,7 @@ export const NavBar = () => {
             </NavLink>
           </li>
         </>
-      )}{" "}
+      )}
     </ul>
   );
 };
