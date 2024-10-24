@@ -1,17 +1,15 @@
 .image-container {
   position: relative;
-  top: 160px;
+  top: 80px;
   left: 179px;
   width: 504px;
   height: 504px;
   border-radius: 2px;
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: none;
 }
 
 .title-text {
-  color: #030303;
+  color: #0a4c86;
   font-size: 64px;
   font-family: "Aleo", sans-serif;
   font-weight: 700;
@@ -20,7 +18,7 @@
 }
 
 .description-text {
-  color: #030303;
+  color: #0a4c86;
   font-size: 24px;
   font-family: "Aleo", sans-serif;
   font-weight: 700;
@@ -35,7 +33,7 @@
   padding: 0px 8px;
   border: 0;
   border-radius: 2px;
-  background-color: #e70f11;
+  background-color: #ff4f3d;
   color: #ffffff;
   font-size: 18px;
   font-family: "Aleo", sans-serif;
@@ -50,5 +48,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+  top: 20px;
 }
