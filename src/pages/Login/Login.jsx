@@ -53,49 +53,47 @@ export const Login = () => {
       </dialog>
 
       <section className="form--login">
-        <div className="card">
-          <h1 className="login-title">SportsSync</h1>
-          <h2>Please sign in</h2>
+        <h1 className="login-title">SportsSync</h1>
+        <h2>Please sign in</h2>
 
-          <form onSubmit={handleLogin}>
-            <fieldset>
-              <label htmlFor="inputEmail"> Email address </label>
-              <input
-                type="email"
-                id="inputEmail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="form-control"
-                placeholder="Email address"
-                required
-                autoComplete="email"
-              />
-            </fieldset>
+        <form onSubmit={handleLogin}>
+          <fieldset>
+            <label htmlFor="inputEmail"> Email address </label>
+            <input
+              type="email"
+              id="inputEmail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="form-control"
+              placeholder="Email address"
+              required
+              autoComplete="email"
+            />
+          </fieldset>
 
-            <fieldset>
-              <label htmlFor="inputPassword"> Password </label>
-              <input
-                type="password"
-                id="inputPassword"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="form-control"
-                placeholder="Password"
-                autoComplete="current-password"
-              />
-            </fieldset>
+          <fieldset>
+            <label htmlFor="inputPassword"> Password </label>
+            <input
+              type="password"
+              id="inputPassword"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="form-control"
+              placeholder="Password"
+              autoComplete="current-password"
+            />
+          </fieldset>
 
-            <fieldset>
-              <button type="submit" className="login-button" disabled={loading}>
-                {loading ? "Signing in..." : "Sign in"}
-              </button>
-            </fieldset>
-          </form>
+          <fieldset>
+            <button type="submit" className="login-button" disabled={loading}>
+              {loading ? "Signing in..." : "Sign in"}
+            </button>
+          </fieldset>
+        </form>
 
-          <section className="link--register">
-            <Link to="/register">Not a member yet?</Link>
-          </section>
-        </div>
+        <section className="link--register">
+          <Link to="/register">Not a member yet?</Link>
+        </section>
       </section>
     </main>
   );
