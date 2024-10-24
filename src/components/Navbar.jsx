@@ -1,19 +1,15 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Navbar.css";
-import SportsSyncLogo from "../assets/SportsSyncLogo.png";
+import SportsSyncLogo from "../assets/images/SportsSyncLogo.png";
 
-export const NavBar = () => {
+export const NavBar = ({ isAuthenticated }) => {
   const navigate = useNavigate();
 
   return (
     <ul className="navbar pb-10">
       <li className="navbar__item navbar__logo">
         <NavLink to="/">
-          <img
-            src={SportsSyncLogo}
-            alt="SportsSync Logo"
-            className="logo-image"
-          />
+          <img src={SportsSyncLogo} alt="SportsSync" className="logo-image" />
         </NavLink>
       </li>
       <li className="navbar__item pl-10">
@@ -40,7 +36,7 @@ export const NavBar = () => {
           Placeholder
         </NavLink>
       </li>
-      {localStorage.getItem("rock_token") !== null ? (
+      {localStorage.getItem("sportssync_token") !== null ? (
         <li className="navbar__item">
           <button
             className="underline text-blue-600 hover:text-purple-700"
