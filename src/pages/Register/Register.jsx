@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
-
+import "./Register.css";
 export const Register = () => {
   const [email, setEmail] = useState("admina@straytor.com");
   const [password, setPassword] = useState("straytor");
@@ -49,7 +48,7 @@ export const Register = () => {
 
       <section>
         <form className="form--login" onSubmit={handleRegister}>
-          <h1 className="text-4xl mt-7 mb-3">Rock of Ages</h1>
+          <h1 className="text-4xl mt-7 mb-3">SportsSync</h1>
           <h2 className="text-xl mb-10">Register new account</h2>
           <fieldset className="mb-4">
             <label htmlFor="firstName"> First name </label>
