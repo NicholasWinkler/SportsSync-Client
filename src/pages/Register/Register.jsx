@@ -1,11 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Register.css";
+
 export const Register = () => {
-  const [email, setEmail] = useState("admina@straytor.com");
-  const [password, setPassword] = useState("straytor");
-  const [firstName, setFirstName] = useState("Admina");
-  const [lastName, setLastName] = useState("Straytor");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const existDialog = useRef();
   const navigate = useNavigate();
 
@@ -48,78 +49,65 @@ export const Register = () => {
 
       <section>
         <form className="form--login" onSubmit={handleRegister}>
-          <h1 className="text-4xl mt-7 mb-3">SportsSync</h1>
-          <h2 className="text-xl mb-10">Register new account</h2>
+          <h1 className="login-title">SportsSync</h1>
+          <h2 className="login-subtitle">Register New Account</h2>
           <fieldset className="mb-4">
-            <label htmlFor="firstName"> First name </label>
+            <label htmlFor="firstName">First Name</label>
             <input
               type="text"
               id="firstName"
               value={firstName}
               onChange={(evt) => setFirstName(evt.target.value)}
               className="form-control"
-              placeholder=""
               required
               autoFocus
             />
           </fieldset>
           <fieldset className="mb-4">
-            <label htmlFor="lastName"> Last name </label>
+            <label htmlFor="lastName">Last Name</label>
             <input
               type="text"
               id="lastName"
               value={lastName}
               onChange={(evt) => setLastName(evt.target.value)}
               className="form-control"
-              placeholder=""
               required
-              autoFocus
             />
           </fieldset>
           <fieldset className="mb-4">
-            <label htmlFor="inputEmail"> Email address </label>
+            <label htmlFor="inputEmail">Email Address</label>
             <input
               type="email"
               id="inputEmail"
               value={email}
               onChange={(evt) => setEmail(evt.target.value)}
               className="form-control"
-              placeholder="Email address"
               required
-              autoFocus
             />
           </fieldset>
           <fieldset className="mb-4">
-            <label htmlFor="inputPassword"> Password </label>
+            <label htmlFor="inputPassword">Password</label>
             <input
               type="password"
               id="inputPassword"
               value={password}
               onChange={(evt) => setPassword(evt.target.value)}
               className="form-control"
-              placeholder="Password"
+              required
             />
           </fieldset>
           <fieldset>
-            <button
-              type="submit"
-              className="button p-3 rounded-md bg-blue-800 text-blue-100"
-            >
+            <button type="submit" className="login-button">
               Register
             </button>
           </fieldset>
         </form>
-      </section>
-      <div className="loginLinks">
-        <section className="link--register">
-          <Link
-            className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-            to="/login"
-          >
+        <div className="loginLinks">
+          <Link className="link--to-login" to="/login">
             Already have an account?
           </Link>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   );
 };
