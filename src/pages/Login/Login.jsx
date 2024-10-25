@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css"; // Import the CSS file for styles
+import "./Login.css";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,8 +25,9 @@ export const Login = () => {
       .then((res) => res.json())
       .then((authInfo) => {
         setLoading(false);
-        if (authInfo.valid) {
-          localStorage.setItem("sportssync_token", JSON.stringify(authInfo));
+        if (authInfo.token) {
+          // Check if the token exists in the response
+          localStorage.setItem("sportssync_token", authInfo.token); // Store only the token
           navigate("/");
         } else {
           setErrorMessage("Incorrect email or password.");
