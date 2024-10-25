@@ -5,69 +5,63 @@ import SportsSyncLogo from "../assets/images/SportsSyncLogo.png";
 export const NavBar = ({ isAuthenticated }) => {
   const navigate = useNavigate();
 
+  const handleLogout = () => {
+    localStorage.removeItem("sportssync_token");
+    navigate("/login");
+  };
+
   return (
-    <ul className="navbar pb-10">
+    <ul className="navbar">
       <li className="navbar__item navbar__logo">
-        <NavLink to="/">
+        <NavLink to={isAuthenticated ? "/home" : "/"}>
           <img src={SportsSyncLogo} alt="SportsSync" className="logo-image" />
         </NavLink>
       </li>
-      <li className="navbar__item pl-10">
-        <NavLink
-          className="text-left underline text-blue-600 hover:text-purple-700"
-          to={"/allrocks"}
-        >
-          Placeholder
-        </NavLink>
-      </li>
-      <li className="navbar__item">
-        <NavLink
-          className="text-left underline text-blue-600 hover:text-purple-700"
-          to={"/create"}
-        >
-          Placeholder
-        </NavLink>
-      </li>
-      <li className="navbar__item">
-        <NavLink
-          className="text-left underline text-blue-600 hover:text-purple-700"
-          to={"/mine"}
-        >
-          Placeholder
-        </NavLink>
-      </li>
-      {localStorage.getItem("sportssync_token") !== null ? (
-        <li className="navbar__item">
-          <button
-            className="underline text-blue-600 hover:text-purple-700"
-            onClick={() => {
-              localStorage.removeItem("rock_token");
-              navigate("/login");
-            }}
-          >
-            Logout
-          </button>
-        </li>
-      ) : (
-        <>
-          <li className="navbar__item">
-            <NavLink
-              className="text-left underline text-blue-600 hover:text-purple-700"
-              to={"/login"}
-            >
-              Login
-            </NavLink>
-          </li>
-          <li className="navbar__item">
-            <NavLink
-              className="text-left underline text-blue-600 hover:text-purple-700"
-              to={"/register"}
-            >
-              Register
-            </NavLink>
-          </li>
-        </>
-      )}
+
+      <div className="navbar__menu">
+        {isAuthenticated ? (
+          <>
+            <li className="navbar__item">
+              <NavLink to="/players" className="nav-link">
+                Players
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <NavLink to="/teams" className="nav-link">
+                Teams
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <NavLink to="/games" className="nav-link">
+                Games
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <NavLink to="/news" className="nav-link">
+                News
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <button onClick={handleLogout} className="nav-link logout-button">
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <div className="navbar__auth-links">
+            <li className="navbar__item">
+              <NavLink to="/register" className="nav-link">
+                Register
+              </NavLink>
+            </li>
+            <li className="navbar__item">
+              <NavLink to="/login" className="nav-link">
+                Login
+              </NavLink>
+            </li>
+          </div>
+        )}
+      </div>
     </ul>
   );
 };
