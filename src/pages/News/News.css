@@ -1,0 +1,376 @@
+/* Complete Magazine Style Layout */
+.news-container {
+  padding: 32px;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.news-header {
+  margin-bottom: 40px;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+}
+
+.news-title {
+  font-size: 42px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Search Bar */
+.search-container {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #666;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  padding: 16px 48px 16px 48px;
+  font-size: 18px;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: white;
+  font-family: "Georgia", serif;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Clear Button */
+.clear-button {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #f00;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-button:hover {
+  color: #d00;
+}
+
+/* Articles Grid */
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 32px;
+  margin-top: 40px;
+}
+
+/* Feature Article (spans 8 columns) */
+.article-card:first-child {
+  grid-column: span 8;
+  grid-row: span 1;
+}
+
+/* Secondary Articles (span 4 columns) */
+.article-card:nth-child(2),
+.article-card:nth-child(3) {
+  grid-column: span 4;
+}
+
+/* Regular Articles (span 4 columns) */
+.article-card:nth-child(n + 4) {
+  grid-column: span 4;
+}
+
+.article-card {
+  background: #fff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #eee;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.article-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.article-image-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 66%;
+  overflow: hidden;
+}
+
+/* Adjust feature article image height */
+.article-card:first-child .article-image-container {
+  padding-bottom: 45%;
+}
+
+.article-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.article-card:hover .article-image {
+  transform: scale(1.05);
+}
+
+.article-content {
+  padding: 24px;
+}
+
+.article-title {
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 16px;
+  color: #000;
+}
+
+/* Feature article title */
+.article-card:first-child .article-title {
+  font-size: 28px;
+}
+
+.article-description {
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Feature article description */
+.article-card:first-child .article-description {
+  -webkit-line-clamp: 2;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.article-source {
+  font-family: "Georgia", serif;
+  font-style: italic;
+  color: #666;
+  background: #f8f8f8;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+}
+
+.article-date {
+  font-family: "Georgia", serif;
+  color: #666;
+  font-size: 14px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 40px 0;
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  border: 2px solid #000;
+  background: white;
+  font-family: "Georgia", serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 44px;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background: #000;
+  color: white;
+}
+
+.pagination-button.active {
+  background: #000;
+  color: white;
+}
+
+.pagination-button:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+  padding: 8px;
+  color: #666;
+}
+
+/* Loading and Error States */
+.loading-indicator {
+  text-align: center;
+  padding: 40px;
+  font-family: "Georgia", serif;
+  font-style: italic;
+  color: #666;
+  grid-column: 1 / -1;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #000;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  animation: spin 1s linear infinite;
+}
+
+.error-message {
+  padding: 20px;
+  background: #fff3f3;
+  color: #d63031;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.no-articles {
+  text-align: center;
+  padding: 40px;
+  font-family: "Georgia", serif;
+  color: #666;
+  font-style: italic;
+  grid-column: 1 / -1;
+  background: #f8f8f8;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .article-card:first-child {
+    grid-column: span 12;
+  }
+
+  .article-card:nth-child(n + 2) {
+    grid-column: span 6;
+  }
+
+  .article-card:first-child .article-image-container {
+    padding-bottom: 45%;
+  }
+
+  .news-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-container {
+    padding: 16px;
+  }
+
+  .articles-grid {
+    gap: 24px;
+  }
+
+  .article-card:nth-child(n) {
+    grid-column: span 12;
+  }
+
+  .news-title {
+    font-size: 32px;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+
+  .search-input {
+    padding: 12px 40px 12px 40px;
+    font-size: 16px;
+  }
+
+  .article-title {
+    font-size: 20px;
+  }
+
+  .article-card:first-child .article-title {
+    font-size: 24px;
+  }
+
+  .article-card:first-child .article-image-container {
+    padding-bottom: 56%;
+  }
+
+  .pagination {
+    flex-wrap: wrap;
+  }
+}
+
+/* Focus States */
+.search-input:focus {
+  outline: none;
+  border-color: #000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.article-card:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
