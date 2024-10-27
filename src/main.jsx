@@ -6,6 +6,7 @@ import Home from "./pages/Home/Home";
 import { Login } from "./pages/Login/Login";
 import { Register } from "./pages/Register/Register";
 import { Welcome } from "./pages/Welcome/Welcome";
+import News from "./pages/News/News";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,9 +15,10 @@ root.render(
       <NavBar /> {/* Navbar will be shown on all pages */}
       <Routes>
         <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home />} /> {/* Home page */}
-        <Route path="/login" element={<Login />} /> {/* Login page */}
-        <Route path="/register" element={<Register />} /> {/* Register page */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/news" element={<News />} />
       </Routes>
     </Router>
   </React.StrictMode>
