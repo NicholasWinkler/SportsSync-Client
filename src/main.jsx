@@ -7,6 +7,8 @@ import { Login } from "./pages/Login/Login";
 import { Register } from "./pages/Register/Register";
 import { Welcome } from "./pages/Welcome/Welcome";
 import News from "./pages/News/News";
+import PlayerProfile from "./pages/PlayerStats/PlayerProfile";
+import PlayerStats from "./pages/PlayerStats/PlayerStats";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -19,6 +21,8 @@ root.render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/news" element={<News />} />
+        <Route path="/players" element={<PlayerStats />} />
+        <Route path="/players/:playerId" element={<PlayerProfile />} />
       </Routes>
     </Router>
   </React.StrictMode>

@@ -1,0 +1,142 @@
+.players-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.players-header {
+  margin-bottom: 2rem;
+}
+
+.players-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.players-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.player-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.player-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.player-card-header {
+  margin-bottom: 1rem;
+}
+
+.player-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.team-name {
+  color: #64748b;
+  margin: 0.25rem 0 0 0;
+}
+
+.player-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #64748b;
+  margin: 0;
+}
+
+.stat-value {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0.25rem 0 0 0;
+}
+
+.player-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.games-played {
+  font-size: 0.875rem;
+  color: #64748b;
+  text-align: center;
+}
+
+.view-profile-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background: #2563eb;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.view-profile-button:hover {
+  background: #1d4ed8;
+}
+
+.error-message,
+.loading-message {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 400px;
+}
+
+.error-message {
+  color: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .players-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .players-container {
+    padding: 1rem;
+  }
+
+  .players-title {
+    font-size: 2rem;
+  }
+}
