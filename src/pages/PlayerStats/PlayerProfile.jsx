@@ -49,7 +49,7 @@ const PlayerProfile = () => {
 
       <div className="stats-grid">
         <div className="stat-card">
-          <h2>Scoring</h2>
+          <h2>Season Scoring</h2>
           <div className="stat-row">
             <span className="stat-label">Points</span>
             <span className="stat-value highlight-stat">{playerData.pts}</span>
@@ -87,7 +87,7 @@ const PlayerProfile = () => {
         </div>
 
         <div className="stat-card">
-          <h2>Performance</h2>
+          <h2>Season Performance</h2>
           <div className="stat-row">
             <span className="stat-label">Rebounds</span>
             <span className="stat-value">{playerData.reb}</span>
