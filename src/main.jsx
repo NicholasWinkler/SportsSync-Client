@@ -12,6 +12,8 @@ import PlayerProfile from "./pages/PlayerStats/PlayerProfile";
 import PlayerStats from "./pages/PlayerStats/PlayerStats";
 import TeamList from "./pages/TeamStats/TeamList"; // Import the TeamList component
 import TeamProfile from "./pages/TeamStats/TeamProfile"; // Import the TeamProfile component
+import GameDetails from "./pages/GameDetails/GameDetails";
+import Games from "./pages/GameDetails/Games";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -30,6 +32,8 @@ root.render(
         {/* Add route for Team List */}
         <Route path="/teams/:teamId" element={<TeamProfile />} />
         {/* Add route for Team Profile */}
+        <Route path="/games/:gameId" element={<GameDetails />} />
+        <Route path="/games" element={<Games />} />
       </Routes>
     </Router>
   </React.StrictMode>
