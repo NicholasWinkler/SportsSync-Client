@@ -4,7 +4,7 @@
   justify-content: space-between;
   list-style-type: none;
   background-color: #f7f7f7; /* Very light gray background */
-  padding: 8px 0;
+  padding: 8px 20px; /* Added horizontal padding for spacing */
   margin: 0;
   width: 100%;
   border: 1px solid #dcdcdc; /* Light border for outline */
@@ -13,7 +13,7 @@
 
 .navbar__menu {
   display: flex;
-  gap: 15px;
+  gap: 20px; /* Increased gap for more spacing */
   align-items: center;
 }
 
@@ -22,15 +22,32 @@
   gap: 15px;
 }
 
-.nav-link {
+.navbar__item .nav-link {
+  /* Increased specificity */
   text-decoration: none;
-  color: #0a4c86; /* Dark blue for text */
+  color: #d9534f; /* Changed text color to dark red */
   font-size: 0.9rem;
   padding: 8px 12px;
+  transition: color 0.3s; /* Smooth transition for hover effect */
 }
 
-.nav-link:hover {
+.navbar__item .nav-link:hover {
+  /* Increased specificity */
   color: #1d6ebc; /* Lighter blue on hover */
+}
+
+.logout-button {
+  background-color: transparent; /* Clear background for the button */
+  border: none; /* Remove default button border */
+  color: #d9534f; /* Match link color */
+  font-size: 0.9rem;
+  cursor: pointer; /* Pointer cursor for button */
+  padding: 8px 12px; /* Ensure consistent padding */
+  transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.logout-button:hover {
+  color: #d9534f; /* Change color on hover (red for logout action) */
 }
 
 .logo-image {
