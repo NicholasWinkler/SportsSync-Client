@@ -10,7 +10,6 @@ const Home = () => {
     },
     standings: { east: [], west: [] },
   });
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -37,53 +36,6 @@ const Home = () => {
 
   return (
     <div className="dashboard">
-      {/* Header */}
-      <header className="header">
-        <div className="header-content">
-          <div className="logo">
-            <span className="logo-bold">SportsSync</span>
-            <span className="logo-accent">Stats</span>
-          </div>
-          <nav className="nav-desktop">
-            <a href="#games" className="nav-link">
-              Games
-            </a>
-            <a href="#players" className="nav-link">
-              Players
-            </a>
-            <a href="#teams" className="nav-link">
-              Teams
-            </a>
-            <a href="#news" className="nav-link">
-              News
-            </a>
-          </nav>
-          <button
-            className="menu-toggle"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <span className="menu-icon"></span>
-          </button>
-        </div>
-
-        {isMenuOpen && (
-          <nav className="nav-mobile">
-            <a href="#games" className="nav-link">
-              Games
-            </a>
-            <a href="#players" className="nav-link">
-              Players
-            </a>
-            <a href="#teams" className="nav-link">
-              Teams
-            </a>
-            <a href="#news" className="nav-link">
-              News
-            </a>
-          </nav>
-        )}
-      </header>
-
       {/* Main Content */}
       <main className="main-content">
         {/* Games Container */}

@@ -28,7 +28,8 @@ export const Register = () => {
       .then((authInfo) => {
         if (authInfo && authInfo.token) {
           localStorage.setItem("sportssync_token", JSON.stringify(authInfo));
-          navigate("/");
+          // Navigate to login page after successful registration
+          navigate("/login");
         } else {
           existDialog.current.showModal();
         }

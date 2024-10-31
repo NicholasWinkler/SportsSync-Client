@@ -1,16 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { NavBar } from "./Navbar.jsx";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 export const Authorized = () => {
-  if (localStorage.getItem("sportssync_token")) {
-    return (
-      <>
-        <NavBar />
-        <main className="p-4">
-          <Outlet />
-        </main>
-      </>
-    );
-  }
-  return <Navigate to="/login" replace />;
+  return (
+    <div>
+      {/* Render child routes for authorized users */}
+      <Outlet />
+    </div>
+  );
 };

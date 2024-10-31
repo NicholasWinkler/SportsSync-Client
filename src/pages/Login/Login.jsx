@@ -14,8 +14,8 @@ export const Login = () => {
     e.preventDefault();
     setLoading(true);
 
-    // Fetch call to login
-    fetch(`http://localhost:8000/login`, {
+    // Updated fetch call to include trailing slash
+    fetch(`http://localhost:8000/login/`, {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {
@@ -25,10 +25,15 @@ export const Login = () => {
       .then((res) => res.json())
       .then((authInfo) => {
         setLoading(false);
+        console.log("Auth Info:", authInfo); // Check the auth info
+
         if (authInfo.token) {
-          // Check if the token exists in the response
+          // Confirm the token storage
           localStorage.setItem("sportssync_token", authInfo.token); // Store only the token
-          navigate("/");
+          console.log("Token stored in local storage:", authInfo.token);
+
+          // Navigate to the main dashboard after successful login
+          navigate("/home");
         } else {
           setErrorMessage("Incorrect email or password.");
           existDialog.current.showModal();
