@@ -1,3 +1,4 @@
+// src/main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -9,6 +10,8 @@ import { Welcome } from "./pages/Welcome/Welcome";
 import News from "./pages/News/News";
 import PlayerProfile from "./pages/PlayerStats/PlayerProfile";
 import PlayerStats from "./pages/PlayerStats/PlayerStats";
+import TeamList from "./pages/TeamStats/TeamList"; // Import the TeamList component
+import TeamProfile from "./pages/TeamStats/TeamProfile"; // Import the TeamProfile component
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +26,10 @@ root.render(
         <Route path="/news" element={<News />} />
         <Route path="/players" element={<PlayerStats />} />
         <Route path="/players/:playerId" element={<PlayerProfile />} />
+        <Route path="/teams" element={<TeamList />} />{" "}
+        {/* Add route for Team List */}
+        <Route path="/teams/:teamId" element={<TeamProfile />} />
+        {/* Add route for Team Profile */}
       </Routes>
     </Router>
   </React.StrictMode>

@@ -1,0 +1,140 @@
+/* src/components/TeamProfile/TeamProfile.css */
+.team-profile {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.back-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #1d428a;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.back-button:hover {
+  text-decoration: underline;
+}
+
+.team-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-logo-large {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+.team-info h1 {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  color: #1d428a;
+}
+
+.team-stats {
+  display: flex;
+  gap: 2rem;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.roster-section {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.roster-section h2 {
+  color: #1d428a;
+  margin-bottom: 1.5rem;
+}
+
+.roster-table-container {
+  overflow-x: auto;
+}
+
+.roster-table {
+  width: 100%;
+  border-collapse: collapse;
+  white-space: nowrap;
+}
+
+.roster-table th,
+.roster-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.roster-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+  color: #1d428a;
+}
+
+.roster-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.player-name a {
+  color: #1d428a;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.player-name a:hover {
+  text-decoration: underline;
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  color: #c9082a;
+}
+
+@media (max-width: 768px) {
+  .team-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .team-stats {
+    justify-content: center;
+  }
+
+  .team-logo-large {
+    width: 150px;
+    height: 150px;
+  }
+}
