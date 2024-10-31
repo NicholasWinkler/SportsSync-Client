@@ -1,0 +1,92 @@
+.game-list-container {
+  max-width: 800px; /* Set a maximum width for the list */
+  margin: 0 auto; /* Center the list */
+  padding: 20px;
+  font-family: "Arial", sans-serif; /* Clean sans-serif font */
+}
+
+.game-list-title {
+  text-align: center;
+  color: #2c3e50; /* Dark color for the title */
+  margin-bottom: 20px;
+}
+
+.date-section {
+  margin-bottom: 30px; /* Space between each date section */
+}
+
+.date-header {
+  font-size: 1.5em; /* Larger font for date */
+  color: #2980b9; /* Subtle blue for date headers */
+  margin-bottom: 10px;
+}
+
+.game-list {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove padding */
+}
+
+.game-item {
+  background-color: #ecf0f1; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  margin-bottom: 10px; /* Space between games */
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.game-item:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+}
+
+.game-link {
+  display: flex; /* Use flexbox for layout */
+  justify-content: space-between; /* Space between items */
+  align-items: center; /* Center align items */
+  padding: 15px; /* Add padding */
+  text-decoration: none; /* Remove underline */
+  color: #2c3e50; /* Dark text color */
+}
+
+.team-info {
+  display: flex; /* Flexbox for team info */
+  align-items: center; /* Center align items */
+}
+
+.team-label {
+  text-align: center; /* Center the labels */
+  margin-right: 10px; /* Space between teams */
+}
+
+.home-team-label,
+.away-team-label {
+  font-weight: bold; /* Bold labels */
+}
+
+.home-team {
+  color: #2e86c1; /* Soft blue for home team */
+  font-weight: bold; /* Emphasize home team */
+}
+
+.away-team {
+  color: #d50032; /* Soft red for away team */
+  font-weight: bold; /* Emphasize away team */
+}
+
+.vs {
+  margin: 0 10px; /* Space between teams */
+  font-weight: bold; /* Bold vs */
+}
+
+.game-details {
+  text-align: right; /* Align game time to the right */
+}
+
+.game-time {
+  font-style: italic; /* Italic for game time */
+  color: #555; /* Darker grey for game time */
+}
+
+.error-message {
+  color: #e74c3c; /* Red color for error messages */
+  text-align: center; /* Center error messages */
+  font-weight: bold; /* Bold for emphasis */
+}

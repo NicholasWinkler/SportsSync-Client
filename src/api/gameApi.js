@@ -15,28 +15,41 @@ export const getGames = async (date = "today") => {
   return response.json();
 };
 
-export const getGameDetails = async (gameId) => {
-  console.log("Calling getGameDetails with:", gameId);
-  const response = await fetch(`${API_BASE_URL}/api/games/${gameId}/details/`);
-  console.log("Response status:", response.status);
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+export const fetchGames = async () => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/games/`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Error fetching games: ${response.statusText}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching games:", error);
+    return null;
   }
-  const data = await response.json();
-  console.log("Response data:", data);
-  return data;
 };
 
-export const getHistoricalMatchups = async (team1Id, team2Id) => {
-  const response = await fetch(
-    `${API_BASE_URL}/api/games/historical/?team1=${team1Id}&team2=${team2Id}`,
-    {
+// Fetch details for a specific game by game ID
+export const fetchGameDetails = async (gameId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/games/${gameId}/`, {
       method: "GET",
-      headers,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!response.ok) {
+      throw new Error(`Error fetching game details: ${response.statusText}`);
     }
-  );
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching game details:", error);
+    return null;
   }
-  return response.json();
 };
