@@ -1,233 +1,46 @@
-.game-details-page {
+.game-details {
   padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 80px;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 600px; /* Limit width for readability */
+  margin: auto; /* Center the component */
+  font-family: Arial, sans-serif; /* Clean font */
 }
 
-.game-details-header {
-  margin-bottom: 20px;
+h2 {
+  color: #333; /* Darker text for headings */
+  margin-bottom: 15px; /* Space below heading */
+  font-size: 1.8rem; /* Slightly larger font for the heading */
 }
 
-.back-button {
-  background: none;
-  border: none;
-  color: var(--primary-color);
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 8px 16px;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.game-info {
+  margin-bottom: 20px; /* Space between sections */
 }
 
-.back-button:hover {
-  background-color: rgba(10, 76, 134, 0.1);
+.box-scores {
+  background-color: #fff; /* White background for box scores */
+  padding: 15px; /* Padding for box scores section */
+  border-radius: 5px; /* Rounded corners for box scores */
+  border: 1px solid #ddd; /* Light border for separation */
 }
 
-.game-details-container {
-  background: white;
-  border-radius: 10px;
-  padding: 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.box-scores h3 {
+  color: #333; /* Darker text for subheading */
+  margin-bottom: 10px; /* Space below subheading */
 }
 
-.status-section {
-  text-align: center;
-  margin-bottom: 24px;
+.box-scores p {
+  margin: 5px 0; /* Vertical spacing between paragraphs */
 }
 
-.game-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.game-status.scheduled {
-  background-color: #f0f0f0;
-  color: #666;
-}
-
-.game-status.live {
-  background-color: var(--live-color);
-  color: white;
-}
-
-.game-status.final {
-  background-color: #2d3748;
-  color: white;
-}
-
-.status-indicator {
-  width: 8px;
-  height: 8px;
-  background-color: white;
-  border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-
-.venue-info {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.teams-section {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 24px;
-  align-items: center;
-  margin-bottom: 32px;
-  padding: 24px;
-  background-color: #f8fafc;
-  border-radius: 8px;
-}
-
-.team {
-  text-align: center;
-}
-
-.team-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--primary-color);
-}
-
-.record {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 12px;
-}
-
-.score {
-  font-size: 3rem;
-  font-weight: 700;
-  color: var(--primary-color);
-}
-
-.game-divider {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #666;
-}
-
-.stats-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #eee;
-}
-
-.stats-section h3 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: var(--primary-color);
-}
-
-.stats-grid {
-  display: grid;
-  gap: 16px;
-}
-
-.stat-row {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  gap: 24px;
-  align-items: center;
-  padding: 8px 0;
-}
-
-.stat-value {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.stat-label {
-  text-align: center;
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.broadcast-section {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid #eee;
-  text-align: center;
-}
-
-.broadcast-section h3 {
-  color: var(--primary-color);
-  margin-bottom: 12px;
-}
-
-.broadcast-info {
-  color: #666;
-}
-
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
-  gap: 16px;
-}
-
-.loading-spinner {
-  width: 40px;
-  height: 40px;
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid var(--primary-color);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-.error-container {
-  text-align: center;
-  padding: 40px;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media (max-width: 768px) {
-  .teams-section {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .game-divider {
-    display: none;
-  }
-
-  .score {
-    font-size: 2.5rem;
-  }
-
-  .stat-row {
-    font-size: 0.9rem;
-  }
+.game-not-available {
+  background-color: #ffeb3b; /* Yellow background for visibility */
+  padding: 10px; /* Padding for the message */
+  border-radius: 5px; /* Rounded corners */
+  color: #333; /* Dark text for contrast */
+  text-align: center; /* Center the text */
+  font-weight: bold; /* Bold text for emphasis */
+  margin-top: 20px; /* Space above the message */
+  border: 1px solid #fbc02d; /* Slightly darker border */
 }
