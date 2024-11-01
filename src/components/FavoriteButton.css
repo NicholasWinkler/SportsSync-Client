@@ -1,0 +1,32 @@
+/* src/components/FavoriteButton.css */
+.favorite-button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.favorite-button.favorite-active {
+  background-color: #ffd700;
+  border-color: #ffd700;
+  color: #000;
+}
+
+.favorite-button:hover {
+  background-color: #f0f0f0;
+}
+
+.favorite-button.favorite-active:hover {
+  background-color: #ffc700;
+}
+
+.favorite-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

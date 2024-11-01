@@ -7,12 +7,17 @@ export const Register = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const existDialog = useRef();
   const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/register`, {
+    setLoading(true);
+    setErrorMessage("");
+
+    fetch(`http://localhost:8000/register/`, {
       method: "POST",
       body: JSON.stringify({
         email,
@@ -26,23 +31,36 @@ export const Register = () => {
     })
       .then((res) => res.json())
       .then((authInfo) => {
+        setLoading(false);
+        console.log("Registration response:", authInfo); // Debug log
+
         if (authInfo && authInfo.token) {
-          localStorage.setItem("sportssync_token", JSON.stringify(authInfo));
-          // Navigate to login page after successful registration
-          navigate("/login");
+          // Store just the token
+          localStorage.setItem("sportssync_token", authInfo.token);
+          console.log("Token stored:", authInfo.token); // Debug log
+          navigate("/home");
         } else {
+          setErrorMessage(
+            authInfo.error || "Registration failed. Please try again."
+          );
           existDialog.current.showModal();
         }
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error("Registration error:", error);
+        setErrorMessage("Registration failed. Please try again.");
+        existDialog.current.showModal();
       });
   };
 
   return (
     <main className="container--login">
       <dialog className="dialog dialog--auth" ref={existDialog}>
-        <div>User does not exist</div>
+        <div>{errorMessage || "Registration failed"}</div>
         <button
           className="button--close"
-          onClick={(e) => existDialog.current.close()}
+          onClick={() => existDialog.current.close()}
         >
           Close
         </button>
@@ -98,8 +116,8 @@ export const Register = () => {
             />
           </fieldset>
           <fieldset>
-            <button type="submit" className="login-button">
-              Register
+            <button type="submit" className="login-button" disabled={loading}>
+              {loading ? "Registering..." : "Register"}
             </button>
           </fieldset>
         </form>

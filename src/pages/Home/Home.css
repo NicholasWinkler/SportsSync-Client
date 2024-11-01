@@ -498,3 +498,29 @@ h2 {
     font-size: 1.5rem;
   }
 }
+/* Add to your Home.css */
+.favorite-teams-wrapper {
+  margin-bottom: 30px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-teams-wrapper h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 10px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.games-container {
+  margin-top: 20px;
+}
