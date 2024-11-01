@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { teamListApi } from "../../api/teamListApi";
+import FavoriteButton from "../../components/FavoriteButton";
+import FavoriteTeams from "../../components/FavoriteTeams";
 import "./TeamList.css";
 
 export const TeamList = () => {
@@ -12,10 +14,9 @@ export const TeamList = () => {
     const fetchTeams = async () => {
       try {
         const data = await teamListApi.getAllTeams();
-        // Assuming data is structured with east and west teams
         setTeams(data);
       } catch (err) {
-        console.error(err); // Log the error for debugging
+        console.error(err);
         setError("Failed to load teams");
       } finally {
         setLoading(false);
@@ -30,19 +31,18 @@ export const TeamList = () => {
 
   return (
     <div className="teams-container">
-      <h1 className="teams-title">NBA Teams</h1>
+      <FavoriteTeams />
+
+      <h1 className="teams-title">All NBA Teams</h1>
 
       <div className="conferences-container">
+        {/* Eastern Conference */}
         <div className="conference">
           <h2 className="conference-title">Eastern Conference</h2>
           <div className="teams-grid">
             {teams.east.map((team) => (
-              <Link
-                to={`/teams/${team.id}`}
-                key={team.id}
-                className="team-card"
-              >
-                <div className="team-card-content">
+              <div key={team.id} className="team-card">
+                <Link to={`/teams/${team.id}`} className="team-card-content">
                   <img
                     src={team.logo}
                     alt={`Logo of ${team.name}`}
@@ -60,22 +60,20 @@ export const TeamList = () => {
                       #{team.conference_rank} in {team.conference}
                     </span>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                <FavoriteButton teamId={team.id} />
+              </div>
             ))}
           </div>
         </div>
 
+        {/* Western Conference */}
         <div className="conference">
           <h2 className="conference-title">Western Conference</h2>
           <div className="teams-grid">
             {teams.west.map((team) => (
-              <Link
-                to={`/teams/${team.id}`}
-                key={team.id}
-                className="team-card"
-              >
-                <div className="team-card-content">
+              <div key={team.id} className="team-card">
+                <Link to={`/teams/${team.id}`} className="team-card-content">
                   <img
                     src={team.logo}
                     alt={`Logo of ${team.name}`}
@@ -93,8 +91,9 @@ export const TeamList = () => {
                       #{team.conference_rank} in {team.conference}
                     </span>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                <FavoriteButton teamId={team.id} />
+              </div>
             ))}
           </div>
         </div>
