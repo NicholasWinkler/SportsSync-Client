@@ -1,11 +1,13 @@
 // src/components/FavoriteButton.jsx
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import "./FavoriteButton.css";
 
 const FavoriteButton = ({ teamId }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const location = useLocation();
 
   useEffect(() => {
     checkFavoriteStatus();
@@ -78,6 +80,10 @@ const FavoriteButton = ({ teamId }) => {
         if (response.status === 204) {
           console.log("Successfully removed from favorites");
           setIsFavorite(false);
+          // Refresh on teams page after unfavoriting
+          if (location.pathname === "/teams") {
+            window.location.reload();
+          }
         } else {
           const errorData = await response.json().catch(() => ({}));
           console.error("Error removing favorite:", errorData);
@@ -104,6 +110,10 @@ const FavoriteButton = ({ teamId }) => {
           const data = await response.json();
           console.log("Add favorite response:", data);
           setIsFavorite(true);
+          // Added refresh on teams page after favoriting
+          if (location.pathname === "/teams") {
+            window.location.reload();
+          }
         } else {
           const errorData = await response.json();
           console.error("Error adding favorite:", errorData);
